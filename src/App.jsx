@@ -5,6 +5,7 @@ import AuditLogs from "./pages/AuditLogs";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Permissions from "./pages/Permissions";
+import ProductPlans from "./pages/ProductPlans";
 import Settings from "./pages/Settings";
 import Users from "./pages/Users";
 
@@ -15,6 +16,7 @@ const App = () => {
       <Route element={<ProtectedRoute />}>
         <Route element={<Layout />}>
           <Route index element={<Dashboard />} />
+          <Route path="product-plans" element={<ProductPlans />} />
           <Route path="users" element={<Users />} />
           <Route path="permissions" element={<Permissions />} />
           <Route path="audit-logs" element={<AuditLogs />} />

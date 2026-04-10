@@ -1,5 +1,6 @@
 export const navItems = [
   { label: "Bảng điều khiển", to: "/" },
+  { label: "Gói sản phẩm", to: "/product-plans" },
   { label: "Quản lý tài khoản", to: "/users" },
   { label: "Phân quyền", to: "/permissions" },
   { label: "Nhật ký hệ thống", to: "/audit-logs" },
@@ -62,6 +63,11 @@ export const subsystems = [
 ];
 
 export const accessTools = [
+  {
+    title: "Gói sản phẩm",
+    description: "Xem 4 gói và so sánh các chức năng theo từng cấp độ.",
+    to: "/product-plans",
+  },
   {
     title: "Quản lý tài khoản truy cập",
     description: "Quản lý người dùng, cấp độ truy cập và trạng thái tài khoản.",
@@ -165,5 +171,75 @@ export const securitySettings = [
     title: "Mức độ bảo mật",
     value: "Yêu cầu MFA cho toàn bộ tài khoản quản trị",
     actionLabel: "Điều chỉnh chính sách",
+  },
+];
+
+export const productPlans = [
+  {
+    id: "trial",
+    name: "Gói thử nghiệm",
+    summary: "Dành cho doanh nghiệp muốn dùng thử và làm quen nền tảng.",
+    price: "0đ",
+    cycle: "/ 14 ngày",
+    badge: "Khởi đầu",
+    ctaLabel: "Dùng thử ngay",
+    highlight: false,
+    features: [
+      "Tối đa 25 tài khoản người dùng",
+      "Dashboard điều phối cơ bản",
+      "Quản lý tài khoản và phân quyền nền tảng",
+      "Nhật ký hoạt động trong 14 ngày",
+    ],
+  },
+  {
+    id: "admin",
+    name: "Gói quản trị",
+    summary: "Phù hợp doanh nghiệp vừa cần quản trị tập trung và ổn định.",
+    price: "1.990.000đ",
+    cycle: "/ tháng",
+    badge: "Phổ biến",
+    ctaLabel: "Chọn gói quản trị",
+    highlight: true,
+    features: [
+      "Tối đa 150 tài khoản người dùng",
+      "Kết nối CRM, Chấm công, Tính lương",
+      "RBAC theo phòng ban và vai trò",
+      "Nhật ký kiểm toán trong 90 ngày",
+      "Hỗ trợ email trong giờ hành chính",
+    ],
+  },
+  {
+    id: "advanced",
+    name: "Gói nâng cao",
+    summary: "Dành cho tổ chức lớn cần tự động hóa và phân tích chuyên sâu.",
+    price: "4.990.000đ",
+    cycle: "/ tháng",
+    badge: "Mở rộng",
+    ctaLabel: "Nâng cấp ngay",
+    highlight: false,
+    features: [
+      "Không giới hạn tài khoản nội bộ",
+      "Quy trình phê duyệt nhiều tầng",
+      "Tích hợp SSO nâng cao và domain policy",
+      "Nhật ký kiểm toán 12 tháng",
+      "Báo cáo tổng hợp theo thời gian thực",
+    ],
+  },
+  {
+    id: "custom",
+    name: "Gói tùy chỉnh",
+    summary: "Thiết kế theo nhu cầu đặc thù và kiến trúc riêng của doanh nghiệp.",
+    price: "Liên hệ",
+    cycle: "theo nhu cầu",
+    badge: "Doanh nghiệp",
+    ctaLabel: "Liên hệ tư vấn",
+    highlight: false,
+    features: [
+      "Tùy biến module theo quy trình nội bộ",
+      "Triển khai private cloud hoặc on-premise",
+      "Kết nối API và đồng bộ dữ liệu đa hệ thống",
+      "SLA, bảo mật và chính sách vận hành riêng",
+      "Đội ngũ triển khai và hỗ trợ chuyên trách",
+    ],
   },
 ];
