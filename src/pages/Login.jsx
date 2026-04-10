@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { mockSSOUser } from "../data/sampleData";
 
 const Login = () => {
   const { user, login } = useAuth();
@@ -13,12 +14,7 @@ const Login = () => {
   }, [user, navigate]);
 
   const handleLogin = () => {
-    login({
-      id: "sso-001",
-      name: "Taylor Morgan",
-      email: "taylor.morgan@company.com",
-      role: "HR Admin",
-    });
+    login(mockSSOUser);
     navigate("/", { replace: true });
   };
 
@@ -26,9 +22,9 @@ const Login = () => {
     <section className="login">
       <div className="login__card">
         <h1>HRM Tools</h1>
-        <p>Single Sign-On for HR operations, compliance, and access reviews.</p>
+        <p>Đăng nhập một lần (SSO) cho vận hành nhân sự, tuân thủ và kiểm soát truy cập.</p>
         <button type="button" onClick={handleLogin} className="login__button">
-          Continue with SSO
+          Tiếp tục với SSO
         </button>
       </div>
     </section>

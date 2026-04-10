@@ -1,46 +1,47 @@
-const users = [
-  { name: "Taylor Morgan", role: "HR Admin", department: "People Ops" },
-  { name: "Jordan Lee", role: "Security Analyst", department: "Security" },
-  { name: "Casey Patel", role: "IT Manager", department: "IT" },
-];
-
-const rbac = [
-  { permission: "View payroll", admin: true, manager: false, analyst: false },
-  { permission: "Edit profiles", admin: true, manager: true, analyst: false },
-  { permission: "Export reports", admin: true, manager: true, analyst: true },
-];
+import { rbac, users } from "../data/sampleData";
 
 const Users = () => {
   return (
     <section className="users">
-      <h1>User Management</h1>
+      <h1>Quản lý tài khoản truy cập</h1>
+      <p className="users__subtitle">
+        Kiểm soát quyền truy cập tài khoản trên CRM, Chấm công, Tính lương và Tuyển dụng.
+      </p>
       <div className="users__list">
         {users.map((user) => (
           <div key={user.name} className="users__card">
-            <h3>{user.name}</h3>
+            <div className="users__card-header">
+              <h3>{user.name}</h3>
+              <span className={`users__pill users__pill--${user.status}`}>
+                {user.statusLabel}
+              </span>
+            </div>
             <p>{user.role}</p>
-            <span>{user.department}</span>
+            <div className="users__meta">
+              <span>{user.department}</span>
+              <span>Đăng nhập gần nhất: {user.lastLogin}</span>
+            </div>
           </div>
         ))}
       </div>
       <div className="users__matrix">
-        <h2>RBAC Matrix</h2>
+        <h2>Ma trận RBAC</h2>
         <table>
           <thead>
             <tr>
-              <th>Permission</th>
-              <th>Admin</th>
-              <th>Manager</th>
-              <th>Analyst</th>
+              <th>Quyền</th>
+              <th>Quản trị</th>
+              <th>Quản lý</th>
+              <th>Chuyên viên</th>
             </tr>
           </thead>
           <tbody>
             {rbac.map((row) => (
               <tr key={row.permission}>
                 <td>{row.permission}</td>
-                <td>{row.admin ? "Yes" : "No"}</td>
-                <td>{row.manager ? "Yes" : "No"}</td>
-                <td>{row.analyst ? "Yes" : "No"}</td>
+                <td>{row.admin ? "Có" : "Không"}</td>
+                <td>{row.manager ? "Có" : "Không"}</td>
+                <td>{row.analyst ? "Có" : "Không"}</td>
               </tr>
             ))}
           </tbody>

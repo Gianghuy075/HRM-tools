@@ -1,12 +1,5 @@
 import { NavLink } from "react-router-dom";
-
-const navItems = [
-  { label: "Dashboard", to: "/" },
-  { label: "Users", to: "/users" },
-  { label: "Permissions", to: "/permissions" },
-  { label: "Audit Logs", to: "/audit-logs" },
-  { label: "Settings", to: "/settings" },
-];
+import { navItems } from "../data/sampleData";
 
 const Sidebar = () => {
   return (
