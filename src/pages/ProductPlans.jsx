@@ -3,14 +3,6 @@ import { productPlans } from "../data/sampleData";
 const ProductPlans = () => {
   return (
     <section className="plans">
-      <div className="plans__hero">
-        <h1>Gói sản phẩm</h1>
-        <p>
-          Chọn gói phù hợp với quy mô doanh nghiệp. Mỗi gói được thiết kế theo mức độ
-          vận hành và nhu cầu quản trị khác nhau.
-        </p>
-      </div>
-
       <div className="plans__grid">
         {productPlans.map((plan) => (
           <article

@@ -7,6 +7,36 @@ export const navItems = [
   { label: "Cài đặt", to: "/settings" },
 ];
 
+export const pageHeaders = {
+  "/": {
+    title: "Trung tâm điều phối HRM Tools",
+    subtitle: "Mở các cổng hệ thống con và quản trị truy cập tại một nơi duy nhất.",
+  },
+  "/product-plans": {
+    title: "Gói sản phẩm",
+    subtitle:
+      "Chọn gói phù hợp với quy mô doanh nghiệp. Mỗi gói có nhóm chức năng riêng.",
+  },
+  "/users": {
+    title: "Quản lý tài khoản truy cập",
+    subtitle:
+      "Danh sách tài khoản, thao tác thêm/sửa/xóa và gán tài khoản vào nhóm quyền.",
+  },
+  "/permissions": {
+    title: "Phân quyền RBAC",
+    subtitle:
+      "Quản trị nhóm quyền: cấp trang truy cập và chức năng sử dụng theo checkbox.",
+  },
+  "/audit-logs": {
+    title: "Nhật ký kiểm toán hệ thống",
+    subtitle: "Theo dõi thay đổi truy cập và hoạt động nhạy cảm trên toàn hệ thống.",
+  },
+  "/settings": {
+    title: "Cài đặt SSO và bảo mật",
+    subtitle: "Quản trị xác thực tập trung, domain và chính sách bảo mật.",
+  },
+};
+
 export const mockSSOUser = {
   id: "sso-001",
   name: "Taylor Morgan",
@@ -15,6 +45,15 @@ export const mockSSOUser = {
 };
 
 export const subsystems = [
+    {
+    name: "BSC",
+    description: "Quản lý mục tiêu, đánh giá hiệu suất và kế hoạch phát triển nhân viên.",
+    url: "https://bsc-kpi.space",
+    status: "Thử nghiệm",
+    icon: "bsc",
+    health: "Giới hạn",
+    tone: "pilot",
+  },
   {
     name: "CRM",
     description: "Quản lý pipeline, sức khỏe khách hàng và gia hạn hợp đồng.",
@@ -51,15 +90,7 @@ export const subsystems = [
     health: "Giới hạn",
     tone: "pilot",
   },
-  {
-    name: "BSC",
-    description: "Quản lý mục tiêu, đánh giá hiệu suất và kế hoạch phát triển nhân viên.",
-    url: "https://bsc-kpi.space",
-    status: "Thử nghiệm",
-    icon: "bsc",
-    health: "Giới hạn",
-    tone: "pilot",
-  },
+
 ];
 
 export const accessTools = [
@@ -75,7 +106,7 @@ export const accessTools = [
   },
   {
     title: "Phân quyền RBAC",
-    description: "Rà soát vai trò RBAC và phạm vi phân quyền giữa các bộ phận.",
+    description: "Quản trị nhóm quyền và quyền truy cập theo trang/chức năng.",
     to: "/permissions",
   },
   {
@@ -92,25 +123,34 @@ export const accessTools = [
 
 export const users = [
   {
+    id: "usr-001",
     name: "Taylor Morgan",
+    email: "taylor.morgan@company.com",
     role: "Quản trị HR",
     department: "Nhân sự",
+    groupId: "grp-admin",
     status: "active",
     statusLabel: "Đang hoạt động",
     lastLogin: "10/04/2026",
   },
   {
+    id: "usr-002",
     name: "Jordan Lee",
+    email: "jordan.lee@company.com",
     role: "Chuyên viên bảo mật",
     department: "An ninh",
+    groupId: "grp-manager",
     status: "active",
     statusLabel: "Đang hoạt động",
     lastLogin: "09/04/2026",
   },
   {
+    id: "usr-003",
     name: "Casey Patel",
+    email: "casey.patel@company.com",
     role: "Quản lý CNTT",
     department: "CNTT",
+    groupId: "grp-staff",
     status: "review",
     statusLabel: "Cần rà soát",
     lastLogin: "07/04/2026",
@@ -123,35 +163,264 @@ export const rbac = [
   { permission: "Xuất báo cáo", admin: true, manager: true, analyst: true },
 ];
 
-export const permissions = [
+export const permissionModules = [
   {
-    role: "Quản trị HR",
-    summary: "Toàn quyền vận hành quy trình HR, bảng lương và kiểm soát tuân thủ.",
+    id: "dashboard",
+    pageLabel: "Bảng điều khiển",
+    features: [
+      { id: "view_subsystems", label: "Xem các thẻ hệ thống con" },
+      { id: "open_subsystems", label: "Mở liên kết hệ thống con" },
+      { id: "view_access_cards", label: "Xem khu điều phối truy cập" },
+    ],
   },
   {
-    role: "Quản lý CNTT",
-    summary: "Quản lý chính sách thiết bị, quy trình onboarding và vòng đời truy cập.",
+    id: "users",
+    pageLabel: "Quản lý tài khoản",
+    features: [
+      { id: "view_users", label: "Xem danh sách người dùng" },
+      { id: "create_user", label: "Tạo tài khoản" },
+      { id: "update_user", label: "Cập nhật tài khoản" },
+      { id: "lock_user", label: "Khóa / mở khóa tài khoản" },
+    ],
   },
   {
-    role: "Chuyên viên bảo mật",
-    summary: "Rà soát nhật ký truy cập, thực thi kiểm toán và xác thực kiểm soát an ninh.",
+    id: "permissions",
+    pageLabel: "Phân quyền",
+    features: [
+      { id: "view_groups", label: "Xem nhóm quyền" },
+      { id: "update_group_name", label: "Cập nhật tên nhóm quyền" },
+      { id: "update_group_permissions", label: "Cập nhật quyền truy cập" },
+    ],
+  },
+  {
+    id: "audit_logs",
+    pageLabel: "Nhật ký hệ thống",
+    features: [
+      { id: "view_audit_logs", label: "Xem nhật ký" },
+      { id: "filter_audit_logs", label: "Lọc nhật ký" },
+      { id: "export_audit_logs", label: "Xuất nhật ký" },
+    ],
+  },
+  {
+    id: "settings",
+    pageLabel: "Cài đặt bảo mật",
+    features: [
+      { id: "view_settings", label: "Xem cài đặt" },
+      { id: "update_sso", label: "Cập nhật nhà cung cấp SSO" },
+      { id: "update_domain", label: "Cập nhật domain" },
+      { id: "update_security", label: "Điều chỉnh chính sách bảo mật" },
+    ],
+  },
+  {
+    id: "product_plans",
+    pageLabel: "Gói sản phẩm",
+    features: [
+      { id: "view_plans", label: "Xem danh sách gói" },
+      { id: "update_plans", label: "Cập nhật nội dung gói" },
+    ],
+  },
+];
+
+export const permissionGroups = [
+  {
+    id: "grp-admin",
+    name: "Nhóm Quản trị HR",
+    members: 8,
+    modules: {
+      dashboard: {
+        pageAccess: true,
+        features: {
+          view_subsystems: true,
+          open_subsystems: true,
+          view_access_cards: true,
+        },
+      },
+      users: {
+        pageAccess: true,
+        features: {
+          view_users: true,
+          create_user: true,
+          update_user: true,
+          lock_user: true,
+        },
+      },
+      permissions: {
+        pageAccess: true,
+        features: {
+          view_groups: true,
+          update_group_name: true,
+          update_group_permissions: true,
+        },
+      },
+      audit_logs: {
+        pageAccess: true,
+        features: {
+          view_audit_logs: true,
+          filter_audit_logs: true,
+          export_audit_logs: true,
+        },
+      },
+      settings: {
+        pageAccess: true,
+        features: {
+          view_settings: true,
+          update_sso: true,
+          update_domain: true,
+          update_security: true,
+        },
+      },
+      product_plans: {
+        pageAccess: true,
+        features: {
+          view_plans: true,
+          update_plans: true,
+        },
+      },
+    },
+  },
+  {
+    id: "grp-manager",
+    name: "Nhóm Quản lý Bộ phận",
+    members: 15,
+    modules: {
+      dashboard: {
+        pageAccess: true,
+        features: {
+          view_subsystems: true,
+          open_subsystems: true,
+          view_access_cards: true,
+        },
+      },
+      users: {
+        pageAccess: true,
+        features: {
+          view_users: true,
+          create_user: false,
+          update_user: true,
+          lock_user: false,
+        },
+      },
+      permissions: {
+        pageAccess: true,
+        features: {
+          view_groups: true,
+          update_group_name: false,
+          update_group_permissions: false,
+        },
+      },
+      audit_logs: {
+        pageAccess: true,
+        features: {
+          view_audit_logs: true,
+          filter_audit_logs: true,
+          export_audit_logs: false,
+        },
+      },
+      settings: {
+        pageAccess: false,
+        features: {
+          view_settings: false,
+          update_sso: false,
+          update_domain: false,
+          update_security: false,
+        },
+      },
+      product_plans: {
+        pageAccess: true,
+        features: {
+          view_plans: true,
+          update_plans: false,
+        },
+      },
+    },
+  },
+  {
+    id: "grp-staff",
+    name: "Nhóm Chuyên viên",
+    members: 42,
+    modules: {
+      dashboard: {
+        pageAccess: true,
+        features: {
+          view_subsystems: true,
+          open_subsystems: true,
+          view_access_cards: false,
+        },
+      },
+      users: {
+        pageAccess: false,
+        features: {
+          view_users: false,
+          create_user: false,
+          update_user: false,
+          lock_user: false,
+        },
+      },
+      permissions: {
+        pageAccess: false,
+        features: {
+          view_groups: false,
+          update_group_name: false,
+          update_group_permissions: false,
+        },
+      },
+      audit_logs: {
+        pageAccess: true,
+        features: {
+          view_audit_logs: true,
+          filter_audit_logs: false,
+          export_audit_logs: false,
+        },
+      },
+      settings: {
+        pageAccess: false,
+        features: {
+          view_settings: false,
+          update_sso: false,
+          update_domain: false,
+          update_security: false,
+        },
+      },
+      product_plans: {
+        pageAccess: true,
+        features: {
+          view_plans: true,
+          update_plans: false,
+        },
+      },
+    },
   },
 ];
 
 export const auditLogs = [
   {
-    action: "Thay đổi vai trò",
-    detail: "Taylor Morgan đã cấp quyền Quản trị HR cho Jordan Lee",
+    id: "log-001",
+    actionType: "add",
+    actionLabel: "Thêm",
+    actor: "Taylor Morgan",
+    target: "Jordan Lee",
+    feature: "Phân quyền vai trò",
+    note: "Cấp quyền Quản trị HR cho người dùng Jordan Lee",
     time: "09/04/2026 09:12",
   },
   {
-    action: "Chính sách SSO",
-    detail: "Đã cập nhật danh sách domain cho phép cho corp.company.com",
+    id: "log-002",
+    actionType: "edit",
+    actionLabel: "Sửa",
+    actor: "Jordan Lee",
+    target: "Nhóm người dùng nội bộ",
+    feature: "Chính sách SSO",
+    note: "Cập nhật domain allowlist, thêm corp.company.com",
     time: "08/04/2026 16:44",
   },
   {
-    action: "Xuất dữ liệu",
-    detail: "Casey Patel đã tạo tệp xuất danh sách người dùng",
+    id: "log-003",
+    actionType: "delete",
+    actionLabel: "Xóa",
+    actor: "Casey Patel",
+    target: "Tài khoản thử nghiệm intern.hr",
+    feature: "Quản lý tài khoản",
+    note: "Thu hồi toàn bộ quyền truy cập và vô hiệu hóa tài khoản",
     time: "07/04/2026 11:03",
   },
 ];

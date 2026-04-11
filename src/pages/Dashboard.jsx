@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { accessTools, subsystems } from "../data/sampleData";
+import bscIcon from "../icon/BSC.svg";
 
 const SystemIcon = ({ type }) => {
   switch (type) {
@@ -35,6 +36,8 @@ const SystemIcon = ({ type }) => {
           <path d="M5.2 11.5h13.6" stroke="currentColor" strokeWidth="1.8" />
         </svg>
       );
+    case "bsc":
+      return <img src={bscIcon} alt="" aria-hidden="true" />;
     default:
       return null;
   }
@@ -43,9 +46,6 @@ const SystemIcon = ({ type }) => {
 const Dashboard = () => {
   return (
     <section className="dashboard">
-      <h1>Trung tâm điều phối HRM Tools</h1>
-      <p>Mở các cổng hệ thống con và quản trị truy cập tại một nơi duy nhất.</p>
-
       <div className="dashboard__section">
         <h2>Hệ thống con</h2>
         <p className="dashboard__subtitle">
