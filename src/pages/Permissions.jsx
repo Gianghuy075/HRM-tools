@@ -129,7 +129,7 @@ const Permissions = () => {
         <div className="permissions-panel__head">
           <h2>Quyền truy cập</h2>
           <p>
-            Chọn trang có thể truy cập và các chức năng có thể dùng cho nhóm quyền đang chọn.
+            Chọn trang và chức năng cho nhóm đang chọn.
           </p>
         </div>
 

@@ -10,30 +10,27 @@ export const navItems = [
 export const pageHeaders = {
   "/": {
     title: "Trung tâm điều phối HRM Tools",
-    subtitle: "Mở các cổng hệ thống con và quản trị truy cập tại một nơi duy nhất.",
+    subtitle: "Điều phối hệ thống và quyền truy cập.",
   },
   "/product-plans": {
     title: "Gói sản phẩm",
-    subtitle:
-      "Chọn gói phù hợp với quy mô doanh nghiệp. Mỗi gói có nhóm chức năng riêng.",
+    subtitle: "Chọn gói phù hợp.",
   },
   "/users": {
     title: "Quản lý tài khoản truy cập",
-    subtitle:
-      "Danh sách tài khoản, thao tác thêm/sửa/xóa và gán tài khoản vào nhóm quyền.",
+    subtitle: "CRUD tài khoản và gán nhóm quyền.",
   },
   "/permissions": {
     title: "Phân quyền RBAC",
-    subtitle:
-      "Quản trị nhóm quyền: cấp trang truy cập và chức năng sử dụng theo checkbox.",
+    subtitle: "Cấp quyền theo nhóm bằng checkbox.",
   },
   "/audit-logs": {
     title: "Nhật ký kiểm toán hệ thống",
-    subtitle: "Theo dõi thay đổi truy cập và hoạt động nhạy cảm trên toàn hệ thống.",
+    subtitle: "Theo dõi thao tác quan trọng.",
   },
   "/settings": {
     title: "Cài đặt SSO và bảo mật",
-    subtitle: "Quản trị xác thực tập trung, domain và chính sách bảo mật.",
+    subtitle: "Cấu hình SSO và bảo mật.",
   },
 };
 
@@ -47,7 +44,7 @@ export const mockSSOUser = {
 export const subsystems = [
     {
     name: "BSC",
-    description: "Quản lý mục tiêu, đánh giá hiệu suất và kế hoạch phát triển nhân viên.",
+  description: "Mục tiêu, KPI và đánh giá.",
     url: "https://bsc-kpi.space",
     status: "Thử nghiệm",
     icon: "bsc",
@@ -56,25 +53,25 @@ export const subsystems = [
   },
   {
     name: "CRM",
-    description: "Quản lý pipeline, sức khỏe khách hàng và gia hạn hợp đồng.",
+    description: "Quản lý khách hàng và hợp đồng.",
     url: "https://crm.hrm-tools.com",
     status: "Hoạt động",
     icon: "crm",
-    health: "Ổn định",
+    health: "Đang đồng bộ",
     tone: "ok",
   },
   {
     name: "Chấm công",
-    description: "Theo dõi ca làm, duyệt nghỉ phép và quy tắc tăng ca.",
+    description: "Ca làm, nghỉ phép, tăng ca.",
     url: "https://attendance.hrm-tools.com",
     status: "Hoạt động",
     icon: "attendance",
-    health: "Ổn định",
+    health: "Đang đồng bộ",
     tone: "ok",
   },
   {
     name: "Tính lương",
-    description: "Vận hành bảng lương tháng, quy tắc thuế và phiếu lương.",
+    description: "Bảng lương, thuế, phiếu lương.",
     url: "https://payroll.hrm-tools.com",
     status: "Hoạt động",
     icon: "payroll",
@@ -83,12 +80,30 @@ export const subsystems = [
   },
   {
     name: "Tuyển dụng",
-    description: "Quản lý pipeline ứng viên, offer và công việc onboarding.",
+    description: "Pipeline ứng viên và offer.",
     url: "https://recruitment.hrm-tools.com",
     status: "Thử nghiệm",
     icon: "recruitment",
-    health: "Giới hạn",
+    health: "Đang đồng bộ",
     tone: "pilot",
+  },
+  {
+    name: "Khen thưởng",
+    description: "Quản lý đề xuất và duyệt khen thưởng.",
+    url: "https://reward.hrm-tools.com",
+    status: "Thử nghiệm",
+    icon: "reward",
+    health: "Đang đồng bộ",
+    tone: "pilot",
+  },
+  {
+    name: "Booking",
+    description: "Đặt lịch phòng họp và tài nguyên nội bộ.",
+    url: "https://booking.hrm-tools.com",
+    status: "Hoạt động",
+    icon: "booking",
+    health: "Đang đồng bộ",
+    tone: "ok",
   },
 
 ];
@@ -96,27 +111,27 @@ export const subsystems = [
 export const accessTools = [
   {
     title: "Gói sản phẩm",
-    description: "Xem 4 gói và so sánh các chức năng theo từng cấp độ.",
+    description: "Xem 4 gói và so sánh nhanh.",
     to: "/product-plans",
   },
   {
     title: "Quản lý tài khoản truy cập",
-    description: "Quản lý người dùng, cấp độ truy cập và trạng thái tài khoản.",
+    description: "Quản lý user và trạng thái tài khoản.",
     to: "/users",
   },
   {
     title: "Phân quyền RBAC",
-    description: "Quản trị nhóm quyền và quyền truy cập theo trang/chức năng.",
+    description: "Quản trị nhóm quyền theo trang/chức năng.",
     to: "/permissions",
   },
   {
     title: "Nhật ký kiểm toán",
-    description: "Theo dõi thay đổi truy cập và các hoạt động nhạy cảm.",
+    description: "Theo dõi thay đổi truy cập.",
     to: "/audit-logs",
   },
   {
     title: "Cài đặt bảo mật",
-    description: "Cấu hình SSO, domain và chính sách bảo mật.",
+    description: "Cấu hình SSO, domain, bảo mật.",
     to: "/settings",
   },
 ];
@@ -400,7 +415,7 @@ export const auditLogs = [
     actor: "Taylor Morgan",
     target: "Jordan Lee",
     feature: "Phân quyền vai trò",
-    note: "Cấp quyền Quản trị HR cho người dùng Jordan Lee",
+    note: "Cấp quyền Quản trị HR cho Jordan Lee.",
     time: "09/04/2026 09:12",
   },
   {
@@ -410,7 +425,7 @@ export const auditLogs = [
     actor: "Jordan Lee",
     target: "Nhóm người dùng nội bộ",
     feature: "Chính sách SSO",
-    note: "Cập nhật domain allowlist, thêm corp.company.com",
+    note: "Thêm corp.company.com vào allowlist.",
     time: "08/04/2026 16:44",
   },
   {
@@ -420,7 +435,7 @@ export const auditLogs = [
     actor: "Casey Patel",
     target: "Tài khoản thử nghiệm intern.hr",
     feature: "Quản lý tài khoản",
-    note: "Thu hồi toàn bộ quyền truy cập và vô hiệu hóa tài khoản",
+    note: "Thu hồi quyền và khóa intern.hr.",
     time: "07/04/2026 11:03",
   },
 ];
@@ -447,7 +462,7 @@ export const productPlans = [
   {
     id: "trial",
     name: "Gói thử nghiệm",
-    summary: "Dành cho doanh nghiệp muốn dùng thử và làm quen nền tảng.",
+    summary: "Dùng thử nhanh, chi phí 0đ.",
     price: "0đ",
     cycle: "/ 14 ngày",
     badge: "Khởi đầu",
@@ -463,7 +478,7 @@ export const productPlans = [
   {
     id: "admin",
     name: "Gói quản trị",
-    summary: "Phù hợp doanh nghiệp vừa cần quản trị tập trung và ổn định.",
+    summary: "Quản trị ổn định cho doanh nghiệp vừa.",
     price: "1.990.000đ",
     cycle: "/ tháng",
     badge: "Phổ biến",
@@ -480,7 +495,7 @@ export const productPlans = [
   {
     id: "advanced",
     name: "Gói nâng cao",
-    summary: "Dành cho tổ chức lớn cần tự động hóa và phân tích chuyên sâu.",
+    summary: "Tự động hóa và phân tích chuyên sâu.",
     price: "4.990.000đ",
     cycle: "/ tháng",
     badge: "Mở rộng",
@@ -497,7 +512,7 @@ export const productPlans = [
   {
     id: "custom",
     name: "Gói tùy chỉnh",
-    summary: "Thiết kế theo nhu cầu đặc thù và kiến trúc riêng của doanh nghiệp.",
+    summary: "Tùy biến theo quy trình riêng.",
     price: "Liên hệ",
     cycle: "theo nhu cầu",
     badge: "Doanh nghiệp",

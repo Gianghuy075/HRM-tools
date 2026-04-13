@@ -12,6 +12,12 @@
   --ring: rgba(14, 165, 233, 0.4);
   --shadow: 0 16px 45px rgba(15, 23, 42, 0.12);
   --radius: 18px;
+  --text-xs: clamp(0.76rem, 0.12vw + 0.74rem, 0.82rem);
+  --text-sm: clamp(0.84rem, 0.16vw + 0.81rem, 0.9rem);
+  --text-base: clamp(0.95rem, 0.18vw + 0.91rem, 1rem);
+  --text-lg: clamp(1.02rem, 0.3vw + 0.97rem, 1.15rem);
+  --text-xl: clamp(1.25rem, 0.8vw + 1.08rem, 1.55rem);
+  --text-2xl: clamp(1.55rem, 1.1vw + 1.3rem, 2rem);
 }
 
 * {
@@ -21,6 +27,8 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: var(--text-base);
+  line-height: 1.55;
   color: var(--ink);
   background: radial-gradient(circle at top left, #f1f5f9 20%, #e2e8f0 55%, #cbd5f5 100%);
   min-height: 100vh;
@@ -30,7 +38,20 @@ h1,
 h2,
 h3 {
   font-family: "Fraunces", "Times New Roman", serif;
+  line-height: 1.2;
   margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: var(--text-2xl);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
 }
 
 a {
@@ -70,7 +91,7 @@ input {
 }
 
 .sidebar__brand {
-  font-size: 1.6rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   letter-spacing: 0.02em;
   margin-bottom: 2.5rem;
@@ -84,6 +105,7 @@ input {
 .sidebar__link {
   padding: 0.8rem 1rem;
   border-radius: 12px;
+  font-size: var(--text-base);
   color: #cbd5f5;
   transition: all 0.2s ease;
   background: transparent;
@@ -114,13 +136,15 @@ input {
 
 .header__title {
   margin: 0;
-  font-size: 1.7rem;
+  font-size: var(--text-2xl);
   line-height: 1.2;
 }
 
 .header__subtitle {
   margin: 0;
+  font-size: var(--text-base);
   color: var(--muted);
+  line-height: 1.45;
   max-width: 720px;
 }
 
@@ -136,6 +160,7 @@ input {
   background: var(--accent-soft);
   padding: 0.65rem 1rem;
   border-radius: 999px;
+  font-size: var(--text-sm);
   color: var(--accent-strong);
   font-weight: 600;
 }
@@ -156,6 +181,7 @@ input {
   color: #ffffff;
   padding: 0.65rem 1rem;
   border-radius: 12px;
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
@@ -232,6 +258,7 @@ input {
 
 .plans__header p {
   color: var(--muted);
+  font-size: var(--text-sm);
   margin: 0;
 }
 
@@ -241,7 +268,7 @@ input {
   color: var(--accent-strong);
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -311,6 +338,7 @@ input {
 
 .permissions-panel__head p {
   margin: 0;
+  font-size: var(--text-sm);
   color: var(--muted);
 }
 
@@ -318,6 +346,7 @@ input {
   border: none;
   border-radius: 10px;
   padding: 0.5rem 0.8rem;
+  font-size: var(--text-sm);
   background: rgba(14, 165, 233, 0.16);
   color: var(--accent-strong);
   font-weight: 700;
@@ -351,7 +380,7 @@ input {
 
 .permissions-group-item__meta {
   color: #64748b;
-  font-size: 0.82rem;
+  font-size: var(--text-sm);
 }
 
 .permissions-group-editor {
@@ -361,7 +390,7 @@ input {
 }
 
 .permissions-group-editor label {
-  font-size: 0.82rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   color: #475569;
 }
@@ -370,6 +399,7 @@ input {
   border: 1px solid rgba(148, 163, 184, 0.45);
   border-radius: 10px;
   padding: 0.55rem 0.7rem;
+  font-size: var(--text-base);
   outline: none;
 }
 
@@ -401,7 +431,7 @@ input {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
 }
 
 .permissions-check input {
@@ -419,7 +449,7 @@ input {
 }
 
 .permissions-access-badge {
-  font-size: 0.74rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   border-radius: 999px;
   padding: 0.2rem 0.58rem;
@@ -465,6 +495,7 @@ input {
 .dashboard__subtitle,
 .users__subtitle {
   color: var(--muted);
+  font-size: var(--text-sm);
   margin: 0.5rem 0 0;
 }
 
@@ -523,7 +554,7 @@ input {
   color: var(--accent-strong);
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -534,8 +565,15 @@ input {
   gap: 0.45rem;
   margin-top: 0.25rem;
   color: var(--muted);
-  font-size: 0.87rem;
+  font-size: var(--text-sm);
   font-weight: 500;
+}
+
+.dashboard__card p,
+.settings__card p,
+.permissions__card p {
+  font-size: var(--text-sm);
+  line-height: 1.45;
 }
 
 .dashboard__dot {
@@ -586,7 +624,7 @@ input {
 }
 
 .users__pill {
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
   font-weight: 600;
@@ -636,7 +674,7 @@ input {
 }
 
 .users-admin__head span {
-  font-size: 0.84rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   color: var(--accent-strong);
   background: rgba(14, 165, 233, 0.14);
@@ -664,7 +702,7 @@ input {
 
 .users-admin__table th {
   color: #475569;
-  font-size: 0.81rem;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -677,11 +715,11 @@ input {
 .users-admin__email {
   margin-top: 0.2rem;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: var(--text-sm);
 }
 
 .users-admin__group {
-  font-size: 0.82rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   color: #1e293b;
   background: rgba(148, 163, 184, 0.18);
@@ -690,7 +728,7 @@ input {
 }
 
 .users-admin__status {
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   border-radius: 999px;
   padding: 0.2rem 0.5rem;
@@ -740,7 +778,7 @@ input {
   display: grid;
   gap: 0.35rem;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: var(--text-sm);
   color: #334155;
 }
 
@@ -750,7 +788,7 @@ input {
   border-radius: 10px;
   padding: 0.55rem 0.7rem;
   outline: none;
-  font-size: 0.9rem;
+  font-size: var(--text-base);
 }
 
 .users-admin__form input:focus,
@@ -840,7 +878,7 @@ input {
 .audit__tag {
   padding: 0.26rem 0.65rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -883,7 +921,7 @@ input {
 
 .audit__label {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 600;
@@ -891,11 +929,12 @@ input {
 
 .audit__value {
   color: var(--ink);
-  font-size: 0.97rem;
+  font-size: var(--text-base);
 }
 
 .audit__note {
   margin: 0.9rem 0 0;
+  font-size: var(--text-sm);
   color: #475569;
 }
 

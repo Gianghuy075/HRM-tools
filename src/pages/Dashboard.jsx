@@ -36,6 +36,21 @@ const SystemIcon = ({ type }) => {
           <path d="M5.2 11.5h13.6" stroke="currentColor" strokeWidth="1.8" />
         </svg>
       );
+    case "reward":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="9" r="3.8" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M8.2 12.2 7 19l5-2.2L17 19l-1.2-6.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    case "booking":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" strokeWidth="1.8" />
+          <path d="M8 3.8v2.4M16 3.8v2.4M4 9h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          <path d="m9.2 14 1.8 1.8 3.8-3.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
     case "bsc":
       return <img src={bscIcon} alt="" aria-hidden="true" />;
     default:
@@ -49,7 +64,7 @@ const Dashboard = () => {
       <div className="dashboard__section">
         <h2>Hệ thống con</h2>
         <p className="dashboard__subtitle">
-          Nhấn vào từng thẻ để mở cổng hệ thống chuyên biệt.
+          Mở nhanh các hệ thống con.
         </p>
         <div className="dashboard__grid">
           {subsystems.map((system) => (
@@ -82,7 +97,7 @@ const Dashboard = () => {
       <div className="dashboard__section">
         <h2>Kiểm soát truy cập</h2>
         <p className="dashboard__subtitle">
-          Quản lý truy cập người dùng và giám sát an toàn tập trung.
+          Quản trị truy cập tập trung.
         </p>
         <div className="dashboard__grid">
           {accessTools.map((tool) => (
